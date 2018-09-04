@@ -4,6 +4,9 @@ class Comfy::Cms::Site < ActiveRecord::Base
 
   self.table_name = "comfy_cms_sites"
 
+  # -- IH Auto Creation --------------------------------------------------------
+  after_create :setup_new_site_associations
+
   # -- Relationships -----------------------------------------------------------
   with_options dependent: :destroy do |site|
     site.has_many :layouts
@@ -71,6 +74,26 @@ class Comfy::Cms::Site < ActiveRecord::Base
   end
 
 protected
+
+  def setup_new_site_associations
+    # setup layout and page
+    layout = self.layouts.create({
+      app_layout: 'application',
+      label: 'Checkin Layout',
+      identifier: 'checkin-layout',
+      position: 0,
+      css: '',
+      js: '',
+      content: "<article class=\"dashboard-content dashboard-page container\">\r\n  <section class=\"section pt-0\">\r\n    <div class=\"row pt-5\">\r\n      <div class=\"col-md-4 hidden-xs-down\">\r\n\t\t\t\t{{ cms:partial \"cms/nav\" }}\r\n      </div>\r\n      <div class=\"col-md-8 col-xs-12 border-left h-100\">\r\n        {{ cms:wysiwyg content }}\r\n      </div>\r\n    </div>\r\n  </section>\r\n</article>"
+    })
+    self.pages.create({
+      layout: layout,
+      label: self.label,
+      full_path: '/',
+      position: 0,
+      is_published: true
+    })
+  end
 
   def assign_identifier
     self.identifier = identifier.blank? ? hostname.try(:parameterize) : identifier

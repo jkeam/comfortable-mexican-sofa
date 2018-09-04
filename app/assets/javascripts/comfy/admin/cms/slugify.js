@@ -25,10 +25,12 @@
 
   window.CMS.slugify = () => {
     const input = document.querySelector('input[data-slugify=true]');
-    const slugInput = document.querySelector('input[data-slug]');
-    if (input === null || slugInput === null) return;
+    const slugInputs = document.querySelectorAll('input[data-slug]');
+    if (input === null || slugInputs === null) return;
     input.addEventListener('input', () => {
-      slugInput.value = slugifyValue(input.value);
+      slugInputs.forEach(function(slugInput) {
+        slugInput.value = slugifyValue(input.value);
+      });
     });
   };
 })();
