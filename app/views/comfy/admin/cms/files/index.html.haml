@@ -15,7 +15,7 @@
 
   .page-header
     = link_to t('.new_link'), new_comfy_admin_cms_site_file_path(@site), class: "btn btn-secondary float-right", id: "cms-uploader-browse"
-    %h2= t('.title')
+    %h2= "#{t('.title')} for #{@site.label}"
 
   = comfy_admin_partial "comfy/admin/cms/partials/files_before"
 
