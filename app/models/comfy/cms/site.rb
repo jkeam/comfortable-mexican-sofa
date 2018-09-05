@@ -84,7 +84,7 @@ protected
       position: 0,
       js: '',
       css: '',
-      content: "<article class=\"dashboard-content dashboard-page container\">\r\n  <section class=\"section pt-0\">\r\n    <div class=\"row main-row\">\r\n      <div class=\"col-md-4 hidden-xs-down\">\r\n\t\t\t\t{{ cms:partial \"cms/nav\" }}\r\n      </div>\r\n      <div class=\"col-md-8 col-xs-12 border-left h-100\">\r\n        {{ cms:wysiwyg content }}\r\n      </div>\r\n    </div>\r\n  </section>\r\n</article>"
+      content: "<article class=\"dashboard-content dashboard-page container\">\r\n  <section class=\"section pt-0\">\r\n    <div class=\"row main-row\">\r\n      <div class=\"col-md-4 hidden-xs-down\">\r\n        {{ cms:partial \"cms/nav\" }}\r\n      </div>\r\n      <div class=\"col-md-8 col-xs-12 border-left h-100\">\r\n        <div class=\"pure-container\" data-effect=\"pure-effect-slide\">\r\n          <input type=\"checkbox\" id=\"pure-toggle-right\" class=\"pure-toggle\" data-toggle=\"right\">\r\n          <label class=\"pure-toggle-label\" for=\"pure-toggle-right\" data-toggle-label=\"right\">\r\n            <span class=\"pure-toggle-icon\"></span>\r\n          </label>\r\n          <div class=\"pure-drawer\" data-position=\"right\">\r\n            {{ cms:partial \"cms/drawer\" }}\r\n          </div>\r\n          <div class=\"pure-pusher-container\">\r\n            <div class=\"pure-pusher\">\r\n              {{ cms:wysiwyg content }}\r\n            </div>\r\n          </div>\r\n          <label class=\"pure-overlay\" for=\"pure-toggle-right\" data-overlay=\"right\"></label>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </section>\r\n</article>"
     })
     self.pages.create({
       layout: layout,
