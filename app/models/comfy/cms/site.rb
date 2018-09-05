@@ -83,8 +83,8 @@ protected
       identifier: 'checkin-layout',
       position: 0,
       js: '',
-      css: ".checkin-nav-img img {\r\n  object-fit: cover;\r\n  width: 300px;\r\n  height: 300px;\r\n}",
-      content: "<article class=\"dashboard-content dashboard-page container\">\r\n  <section class=\"section pt-0\">\r\n    <div class=\"row pt-5\">\r\n      <div class=\"col-md-4 hidden-xs-down\">\r\n\t\t\t\t{{ cms:partial \"cms/nav\" }}\r\n      </div>\r\n      <div class=\"col-md-8 col-xs-12 border-left h-100\">\r\n        {{ cms:wysiwyg content }}\r\n      </div>\r\n    </div>\r\n  </section>\r\n</article>"
+      css: '',
+      content: "<article class=\"dashboard-content dashboard-page container\">\r\n  <section class=\"section pt-0\">\r\n    <div class=\"row main-row\">\r\n      <div class=\"col-md-4 hidden-xs-down\">\r\n\t\t\t\t{{ cms:partial \"cms/nav\" }}\r\n      </div>\r\n      <div class=\"col-md-8 col-xs-12 border-left h-100\">\r\n        {{ cms:wysiwyg content }}\r\n      </div>\r\n    </div>\r\n  </section>\r\n</article>"
     })
     self.pages.create({
       layout: layout,
