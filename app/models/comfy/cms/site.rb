@@ -45,7 +45,8 @@ class Comfy::Cms::Site < ActiveRecord::Base
       path = path.sub(%r{\A#{public_cms_path}}, "")
     end
 
-    Comfy::Cms::Site.where(hostname: real_host_from_aliases(host)).each do |site|
+    # Comfy::Cms::Site.where(hostname: real_host_from_aliases(host)).each do |site|
+    Comfy::Cms::Site.all.each do |site|
       if site.path.blank?
         cms_site = site
       elsif "#{path.to_s.split('?')[0]}/" =~ %r{^/#{Regexp.escape(site.path.to_s)}/}
